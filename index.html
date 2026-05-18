@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Such a Softy — Milk Nougat · Los Angeles</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #FAF8F4;
+    --warm-white: #F5F1EB;
+    --taupe: #C4B5A0;
+    --dark: #2E2B27;
+    --mid: #9A8F84;
+    --light-border: #E8E2D8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 48px;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--light-border);
+  }
+
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .nav-logo span:first-child {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: var(--taupe);
+    font-weight: 300;
+  }
+
+  .nav-logo span:last-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--dark);
+    font-weight: 400;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--dark); }
+
+  /* SECTIONS */
+  section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* HOME */
+  #home {
+    padding: 120px 48px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .home-text { padding-top: 40px; }
+
+  .home-eyebrow {
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: var(--taupe);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .home-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(64px, 8vw, 96px);
+    font-weight: 300;
+    line-height: 0.95;
+    color: var(--dark);
+    margin-bottom: 32px;
+  }
+
+  .home-title em {
+    font-style: italic;
+    color: var(--taupe);
+  }
+
+  .home-desc {
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--mid);
+    max-width: 340px;
+    margin-bottom: 48px;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: var(--dark);
+    padding: 16px 36px;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+    cursor: pointer;
+    border: none;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+  }
+
+  .btn-primary:hover { background: var(--taupe); }
+
+  .btn-ghost {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--dark);
+    background: transparent;
+    padding: 16px 36px;
+    text-decoration: none;
+    border: 0.5px solid var(--light-border);
+    transition: border-color 0.3s, color 0.3s;
+    cursor: pointer;
+    margin-left: 16px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+  }
+
+  .btn-ghost:hover { border-color: var(--taupe); color: var(--taupe); }
+
+  .home-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .hero-card {
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 3/4;
+    background: var(--warm-white);
+    border: 0.5px solid var(--light-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: #EDE8DF;
+    opacity: 0.5;
+  }
+
+  .hero-card-inner {
+    text-align: center;
+    z-index: 1;
+  }
+
+  .hero-card-label {
+    font-size: 8px;
+    letter-spacing: 4px;
+    color: var(--taupe);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .hero-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .hero-card-sub {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--mid);
+  }
+
+  .candy-dot {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: #E8E2D6;
+    margin: 0 auto 16px;
+    position: relative;
+  }
+
+  .candy-dot::after {
+    content: '';
+    position: absolute;
+    top: 12px; left: 12px;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.6);
+  }
+
+  /* SHOP */
+  #shop {
+    padding: 120px 48px;
+    min-height: auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 64px;
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid var(--light-border);
+  }
+
+  .section-eyebrow {
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: var(--taupe);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1;
+  }
+
+  .section-title em { font-style: italic; color: var(--taupe); }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+  }
+
+  .product-card {
+    cursor: pointer;
+    transition: transform 0.4s ease;
+  }
+
+  .product-card:hover { transform: translateY(-4px); }
+
+  .product-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-dot {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .product-dot::after {
+    content: '';
+    position: absolute;
+    top: 30%; left: 32%;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+  }
+
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .product-desc {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--mid);
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+
+  .product-price {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--taupe);
+  }
+
+  /* ABOUT */
+  #about {
+    padding: 120px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    align-items: center;
+    background: var(--warm-white);
+    min-height: auto;
+  }
+
+  .about-visual { position: relative; }
+
+  .about-block {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: var(--cream);
+    border: 0.5px solid var(--light-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .about-block-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--dark);
+    font-style: italic;
+  }
+
+  .about-block-sub {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--taupe);
+    text-transform: uppercase;
+  }
+
+  .about-accent {
+    position: absolute;
+    bottom: -20px; right: -20px;
+    width: 120px; height: 120px;
+    background: var(--light-border);
+    z-index: -1;
+  }
+
+  .about-text .section-eyebrow { margin-bottom: 16px; }
+
+  .about-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 32px;
+  }
+
+  .about-title em { font-style: italic; color: var(--taupe); }
+
+  .about-body {
+    font-size: 13px;
+    line-height: 2;
+    color: var(--mid);
+    margin-bottom: 16px;
+    letter-spacing: 0.3px;
+  }
+
+  .about-signature {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-style: italic;
+    color: var(--taupe);
+    margin-top: 32px;
+  }
+
+  /* CONTACT */
+  #contact {
+    padding: 120px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    align-items: start;
+    min-height: auto;
+  }
+
+  .contact-info .section-title { margin-bottom: 32px; }
+
+  .contact-detail { margin-bottom: 24px; }
+
+  .contact-label {
+    font-size: 8px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--taupe);
+    margin-bottom: 6px;
+  }
+
+  .contact-value {
+    font-size: 13px;
+    color: var(--mid);
+    letter-spacing: 0.5px;
+  }
+
+  .contact-form { display: flex; flex-direction: column; gap: 20px; padding-top: 8px; }
+
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+
+  .form-label {
+    font-size: 8px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--taupe);
+  }
+
+  .form-input {
+    background: transparent;
+    border: none;
+    border-bottom: 0.5px solid var(--light-border);
+    padding: 12px 0;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--dark);
+    outline: none;
+    transition: border-color 0.3s;
+    letter-spacing: 0.5px;
+  }
+
+  .form-input:focus { border-color: var(--taupe); }
+  .form-input::placeholder { color: var(--light-border); }
+
+  textarea.form-input { resize: none; min-height: 100px; }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 48px;
+    border-top: 0.5px solid var(--light-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--dark);
+    letter-spacing: 2px;
+  }
+
+  .footer-copy {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--taupe);
+  }
+
+  .footer-social {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--mid);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .footer-social:hover { color: var(--dark); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .home-text > * {
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+  }
+
+  .home-eyebrow { animation-delay: 0.1s; }
+  .home-title { animation-delay: 0.25s; }
+  .home-desc { animation-delay: 0.4s; }
+  .home-ctas { animation-delay: 0.55s; }
+
+  .hero-card {
+    animation: fadeUp 0.8s ease 0.3s forwards;
+    opacity: 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .nav-links { gap: 20px; }
+    #home { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 40px; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    #about { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
+    #contact { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
+    #shop { padding: 80px 24px; }
+    footer { padding: 32px 24px; flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <span>SUCH A</span>
+    <span>softy</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+  <div class="home-text">
+    <p class="home-eyebrow">Milk Nougat · Los Angeles</p>
+    <h1 class="home-title">such a<br><em>softy.</em></h1>
+    <p class="home-desc">Handcrafted milk nougat made with clean ingredients and a lot of love. Soft, indulgent, and made for those who appreciate the quiet luxury of a really good piece of candy.</p>
+    <div class="home-ctas">
+      <a href="#shop" class="btn-primary">Shop Now</a>
+      <a href="#about" class="btn-ghost">Our Story</a>
+    </div>
+  </div>
+  <div class="home-visual">
+    <div class="hero-card">
+      <div class="hero-card-inner">
+        <div class="candy-dot"></div>
+        <p class="hero-card-label">Signature Flavor</p>
+        <p class="hero-card-name">Vanilla Sea Salt<br>Almond</p>
+        <p class="hero-card-sub">milk nougat · 35g</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section id="shop">
+  <div class="section-header">
+    <div>
+      <p class="section-eyebrow">The World Collection</p>
+      <h2 class="section-title">travel the <em>world.</em></h2>
+    </div>
+    <a href="#contact" class="btn-ghost">Order Now</a>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-img" style="background:#F0EBE2;">
+        <div class="product-dot" style="background:#D6C9B8;"></div>
+      </div>
+      <p style="font-size:9px;letter-spacing:3px;color:var(--taupe);margin-bottom:4px;">🇺🇸 LOS ANGELES</p>
+      <p class="product-name">Vanilla Sea Salt Almond</p>
+      <p class="product-desc">Madagascar vanilla · roasted almonds · flaky sea salt</p>
+      <p class="product-price">$5 CAD</p>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background:#EBF0E8;">
+        <div class="product-dot" style="background:#B8CDB0;"></div>
+      </div>
+      <p style="font-size:9px;letter-spacing:3px;color:var(--taupe);margin-bottom:4px;">🇯🇵 JAPAN</p>
+      <p class="product-name">Strawberry Matcha Cloud</p>
+      <p class="product-desc">Ceremonial matcha · strawberry milk · soft chew</p>
+      <p class="product-price">$5 CAD</p>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background:#F5F0E4;">
+        <div class="product-dot" style="background:#E8D49A;"></div>
+      </div>
+      <p style="font-size:9px;letter-spacing:3px;color:var(--taupe);margin-bottom:4px;">🇰🇷 KOREA</p>
+      <p class="product-name">Banana Milk Coffee</p>
+      <p class="product-desc">Korean banana milk · espresso · cereal crunch</p>
+      <p class="product-price">$5 CAD</p>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background:#E8ECF2;">
+        <div class="product-dot" style="background:#A8B8CC;"></div>
+      </div>
+      <p style="font-size:9px;letter-spacing:3px;color:var(--taupe);margin-bottom:4px;">🇬🇧 LONDON</p>
+      <p class="product-name">Earl Grey Cream</p>
+      <p class="product-desc">Bergamot milk nougat · Earl Grey · soft vanilla finish</p>
+      <p class="product-price">$5 CAD</p>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background:#F5EEF0;">
+        <div class="product-dot" style="background:#D4B8C8;"></div>
+      </div>
+      <p style="font-size:9px;letter-spacing:3px;color:var(--taupe);margin-bottom:4px;">🇫🇷 FRANCE</p>
+      <p class="product-name">Rose Lychee Silk</p>
+      <p class="product-desc">Rosewater nougat · chewy lychee · champagne finish</p>
+      <p class="product-price">$5 CAD</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual">
+    <div class="about-block">
+      <p class="about-block-text">softy.</p>
+      <p class="about-block-sub">handmade with love</p>
+    </div>
+    <div class="about-accent"></div>
+  </div>
+  <div class="about-text">
+    <p class="section-eyebrow">Our Story</p>
+    <h2 class="about-title">made for those who<br>are <em>such a softy.</em></h2>
+    <p class="about-body">Such a Softy started in a home kitchen with one simple idea — that candy could be clean, beautiful, and worth slowing down for. No artificial anything. No shortcuts. Just really good milk nougat, made in small batches with ingredients you can actually pronounce.</p>
+    <p class="about-body">Every piece is handcrafted with care, wrapped with intention, and designed to feel like a little luxury in your everyday. Because you deserve something soft.</p>
+    <p class="about-signature">— Such a Softy</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info">
+    <p class="section-eyebrow">Get in Touch</p>
+    <h2 class="section-title">let's <em>connect.</em></h2>
+    <div class="contact-detail">
+      <p class="contact-label">Instagram</p>
+      <p class="contact-value">@suchasofty</p>
+    </div>
+    <div class="contact-detail">
+      <p class="contact-label">Location</p>
+      <p class="contact-value">Vaughan, Ontario · Canada</p>
+    </div>
+    <div class="contact-detail">
+      <p class="contact-label">For wholesale & corporate gifting</p>
+      <p class="contact-value">hello@suchasofty.com</p>
+    </div>
+    <div class="contact-detail">
+      <p class="contact-label">farmers markets</p>
+      <p class="contact-value">Check Instagram for market dates</p>
+    </div>
+  </div>
+  <div class="contact-form">
+    <div class="form-group">
+      <label class="form-label">Your Name</label>
+      <input class="form-input" type="text" placeholder="First Last">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email</label>
+      <input class="form-input" type="email" placeholder="you@email.com">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Subject</label>
+      <input class="form-input" type="text" placeholder="Order, wholesale, just saying hi...">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Message</label>
+      <textarea class="form-input" placeholder="Say hello..."></textarea>
+    </div>
+    <button class="btn-primary" style="align-self:flex-start;">Send Message</button>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-logo">such a softy.</p>
+  <p class="footer-copy">© 2025 Such a Softy · Vaughan, ON · Canada</p>
+  <a href="https://instagram.com/suchasofty" class="footer-social">@suchasofty</a>
+</footer>
+
+</body>
+</html>
